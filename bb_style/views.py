@@ -124,11 +124,21 @@ def upload_file():
             # Return top match
             n_matches = sum(similar_images['simscore'] > .5)
 
+            print("hello")
+            print(similar_images.head())
+
+            matches = similar_images.to_dict('records')
+            print(len(matches))
+            print(type(matches))
+            matches = matches[:n_matches]
+            print(matches)
+
+
             return render_template('output.html',
                                    n_matches=n_matches,
                                    prod_names=similar_images['product_name'][:n_matches],
                                    img_urls=similar_images['image_url'][:n_matches],
-                                   matches=similar_images[:n_matches],
+                                   matches=matches,
                                    simscore=np.round(similar_images['simscore'][:n_matches],2),
                                    original='./carpic.jpg')
         
