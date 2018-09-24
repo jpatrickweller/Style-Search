@@ -20,7 +20,7 @@ import tensorflow as tf
 
 
 app.config.update(dict(
-        UPLOAD_FOLDER = "./bb_style/uploads",
+        UPLOAD_FOLDER = "./bb_style/static/uploads2/",
         DATA_FOLDER = "./bb_style/models",
         ))
 
@@ -128,21 +128,14 @@ def upload_file():
             print(similar_images.head())
 
             matches = similar_images.to_dict('records')
-            print(len(matches))
-            print(type(matches))
             matches = matches[:n_matches]
-            print(matches)
 
+            imgpath2 = '/static/uploads2/Christening_Gown_Crochet.jpg'
 
             return render_template('output.html',
                                    n_matches=n_matches,
-                                   prod_names=similar_images['product_name'][:n_matches],
-                                   img_urls=similar_images['image_url'][:n_matches],
                                    matches=matches,
-                                   simscore=np.round(similar_images['simscore'][:n_matches],2),
-                                   original='./carpic.jpg')
-        
-            return redirect(url_for('uploaded_file',filename=filename))
+                                   original=imgpath2)
     
     return 'oh, farts. Something went wrong.'
 
