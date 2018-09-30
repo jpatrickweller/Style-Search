@@ -42,7 +42,7 @@
     <nav class="site-header py-1">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="http://jpatrickweller.com/">Home</a>
-        <a class="py-2 d-none d-md-inline-block" href="https://github.com/jpatrickweller/Style-Search">StyleSearch GitHub</a>
+        <a class="py-2 d-none d-md-inline-block" href="https://github.com/jpatrickweller/Style-Search" target="_blank">StyleSearch GitHub</a>
         <a class="py-2 d-none d-md-inline-block" href="#">StyleSearch demo</a>
         <a class="py-2 d-none d-md-inline-block" href="#">About me</a>
       </div>
@@ -61,9 +61,9 @@
     {% if n_matches == 0: %}
 
       <h4> :( </h4>
-      <h3> Bummer! We're sorry, but we found no matches for that style. </h3>
-      <p> Style Search only works on clothing, at least for now... </p>
-      <p> Try cropping your photo to eliminate other objects and background noise. <p>
+      <h3> Bummer! We found no matches for that style. </h3>
+      <br>
+      <p> Try cropping your photo to eliminate other objects and background noise. At this time, StyleSearch only works on clothing and only searches Etsy listings.<p>
 
     {% else: %}
 
